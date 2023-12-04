@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Image background -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Resume Screening</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/fonts/ionicons.min.css">
+
+</head>
+
+<body bgcolor=black>
+<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
+    <div class="container"><a class="navbar-brand logo" href="{{url_for('upload_file')}}">Sparta CV Screener</a>
+    </div>
+</nav>
+<main class="page lanidng-page">
+    <section class="portfolio-block block-intro" style="padding: 50px !important;">
+        <div class="container">
+            <div class="about-me">
+                <style>
+
+
+  h1 {
+    font-family: Gloucester MT Extra Condensed;
+    font-size: 36px;
+    font-weight: bold;
+    color: #0ea0ff;
+    border: 2px
+
+  }
+</style>
+
+                <h1><br>Welcome To Sparta CV Screener!!!</h1>
+            </div>
+        </div>
+    </section>
+    <section class="portfolio-block call-to-action border-bottom" style="padding: 50px !important;">
+        <div class="container">
+            <div class="d-flex justify-content-center align-items-center content">
+                <h4><br>Upload the PDF of Resume</h4>
+
+            </div>
+        </div>
+    </section>
+    <section class="portfolio-block block-intro" style="padding: 30px !important;">
+          <div>
+                    <form method=post enctype=multipart/form-data>
+                        <div class="custom-file" style="padding-bottom: 50px">
+                            <input type="file" class="custom-file-input" name="file" id="customFile">
+                            <label class="custom-file-label" for="customFile" style="text-align: center;">Choose file</label>
+                        </div>
+                        <input type=submit class="btn btn-primary" value=Upload>
+                    </form>
+
+                    <script>
+                        // Add the following code if you want the name of the file appear on select
+                        $(".custom-file-input").on("change", function () {
+                            var fileName = $(this).val().split("\\").pop();
+                            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                        });
+                    </script>
+                </div>
+    </section>
+    <section class="portfolio-block skills" id="hasil" style="padding: 50px !important;">
+        <div class="container">
+            <div class="heading" style="margin-bottom: 0 !important;">
+                <h2>Result of skills screening</h2>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="card special-skill-item border-20" >
+                        <div class="card-body" style="h1">
+
+                            {{data}}% Matched With Job Description
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+
+</html>
